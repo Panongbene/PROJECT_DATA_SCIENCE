@@ -21,7 +21,7 @@ for example by running the following command :
 we will see this in the terminal.
 (base) panongbene@panongbene-HP-Pavilion-Gaming-Laptop-15-ec0xxx:~/Bureau/4 ANNEE/PERIODE 1/ALGORITHMS FOR DATA SCIENCE(P1)/TP/PROJECT$ python Panongbene_jean_mohamed_sawadog.py tweets.txt 0.05
 
-0      238      0.05102040816326531
+0      238      0.05102040816326531\n
 0      455      0.061068702290076333
 1      237      0.125
 1      238      0.14285714285714285
