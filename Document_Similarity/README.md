@@ -8,7 +8,7 @@ this directory contains 5 files which are as follows:
  * Report_Document_Similarity.pdf : This file contains the report of our work
  * Project_Requirements.pdf : This file contains the description of the work to be done
  * Panongbene_jean_mohamed_sawadog.py : This file contains the program we made in python version
- * Panongbene_Jean_Mohamed_Sawadogo.ipynb : This file contains the program we made in jupyter version
+ * Panongbene_Jean_Mohamed_Sawadogo.ipynb : This file contains the program we made in jupyter version. This version of the code contains more informations and explanations: this is where you can correctly view the images
  
 # Run program
 
