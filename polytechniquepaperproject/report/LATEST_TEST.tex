@@ -1,0 +1,74 @@
+\documentclass[12pt,onecolumn]{article}
+\special{papersize=250mm,353mm}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{tikzducks}
+\usepackage{wrapfig}
+\usepackage{color}
+\usepackage[nottoc, notlof, notlot]{tocbibind}
+\usepackage{xcolor} 
+\usepackage{biblatex}
+\input{insbox}
+
+\begin{document}
+\begin{figure}
+	\begin{flushleft}
+        \includegraphics[width=0.3\linewidth]{2}
+        \hspace{5.2cm}
+        \includegraphics[width=0.3\linewidth]{2}
+	\end{flushleft}
+ \vspace{2.2cm}
+\end{figure} 
+	\begin{center}
+		\textbf{École Polytechnique - 3 ième Année }\\[0.4cm]
+		\textbf{Projet de la première période}
+		\\[3.5cm]
+	\end{center}
+    \begin{center}
+    	École : Institut Polytechnique de Paris\\[0.5cm]
+    	\textbf{Sujet :}Étude énergétiques des réseaux Massive MIMO en utilisant la Géométrie Stochastique \\[1cm]
+    \end{center}
+  	\vspace{3.0cm}
+	\begin{flushleft}
+			Etudiant: Panongbene Jean Mouhamed Sawadogo.\\
+			Email: panongbene.sawadogo@telecom-paris.fr
+	\end{flushleft}
+\thispagestyle{empty}
+\setcounter{page}{0}
+\newpage
+\thispagestyle{empty}
+\setcounter{page}{0}
+\tableofcontents
+\newpage
+\section{Introduction}
+Dans ce travail, nous étudions l’efficacité énergiques des réseaux Massive MIMO ainsi que les optimisations qu'on pourrait y réaliser en agissant sur certains paramètres. Pour se faire, on utilise les modélisations des réseaux Massive MIMO par les outils de géométries stochastiques qui nous donnent des expressions analytiques de certains paramètres tel que le SIR o\'u l’efficacité spectrale.\\
+Les expressions mathématiques qui seront utilisés tout au long de ce document seront tirées de publications scientifiques que nous citerons au fur et à mesure de notre rédaction.
+\newpage
+\section{Bibliographie}
+L'utilisation de la géométrie stochastique pour la modélisation des Réseaux Massive MIMO a été le sujet de plusieurs articles scientifiques et plusieurs thèses aussi. Elle est utilisée de différentes manières selon les articles et les thèses mais le principe de bases reste le même : utilisation de la géométrie stochastique pour déterminer les expressions analytiques des paramètres qui influent sur la performances des réseaux Massive MIMO. \\[0.2cm]
+
+Ainsi, on peut citer l'article {\color{blue}{ Massive MIMO Forward Link Analysis for Cellular Network}}[1] qui utilise les Processus Ponctuels de Poisson pour la modélisation de la distribution spatiales des stations de bases et des utilisateurs. Cela permet d'avoir une suite de variables aléatoires indépendantes et identiquement distribuées pour modéliser le nombre d'utilisateur servir par chaque station de base, permettant ainsi de déterminer des expression analytiques du SIR(Signal-to-interférence-ratio) et l'efficacité spectral. \\
+L'article {\color{blue}{Rate Analysis of Massive MIMO System Using
+Stochastic Geometric Model}}[2] publié en 2017 à l'université de Beijing qui étudie les performances de débits des système Massive MIMO en liaison descendante en utilisant les modèles de géométries stochastiques du disque de Gilbert et du tessellation de Voronoi.\\
+Nous avons aussi l'article {\color{blue}{A Statistical Estimation of 5G Massive MIMO Networks’ Exposure Using Stochastic Geometry in mmWave Bands}}[3] publié en décembre 2020 qui donne une modélisation analytiques de l'exposition de la liaison descendante dans les réseaux 5G Massive MIMO en utilisant la géométrie stochastique.\\
+Enfin, on peut citer l'article {\color{blue}{A Novel Kronecker-Based Stochastic Model for Massive MIMO Channels}}[4] qui utilise le modele Kronecker-based stochastic model (KBSM) pour la modélisation des reseaux Massive MIMO. Le KBSM proposé dans ce article permet de capturer les corrélations d'antennes mais aussi l'évolution des ensemble de diffiseur sur l'axe du réseaux.\\[0.2cm]
+
+Parmi tous ces modèles, le modèle de Processus Ponctuels de Poisson utilisé dans l'article {\color{blue}{ Massive MIMO Forward Link Analysis for Cellular Network}}[1] nous semble le plus pertinent. En effet, contrairement aux autres modèles de géométrie stochastique utilisés dans les autres articles qui étudie des expressions analytiques de certains paramètres du réseaux, le modèle étudie en [1] nous donnes des expressions analytiques de tous les paramètres du réseaux dont on aura besoin pour avoir des expressions analytiques des paramètres nécessaires pour évaluer l'expression énergétiques des réseaux Massive MIMO utilisant cette modélisation.\\
+Ainsi, tout au long de ce travail nous utiliserons les résultats obtenus dans l'article [1]. Nous allons d'abord donner la modélisation utilisé dans ce article.
+\section{Modélisations}
+Le modèle utilisé dans {\color{blue}{ Massive MIMO Forward Link Analysis for Cellular Network}}[1] se base sur les Processus Ponctuels de Poisson(PPP). En effet, dans ce article :
+\begin{itemize}
+  \item La position des stations de base(Base Station BS) est modélisée par {\color{blue}{\href{https://perso.univ-rennes1.fr/bernard.delyon/stationnaire.pdf}{un processus Ergodic stationnaire}}} de densité  $\lambda_b$.
+  \item La position des utilisateurs est aussi modélisée par {\color{blue}{\href{https://perso.univ-rennes1.fr/bernard.delyon/stationnaire.pdf}{un processus Ergodic stationnaire}}} de densité  $\lambda_u$. 
+\end{itemize}
+Ainsi, on modélise les nombres d'utilisateurs desservis par les BSs ${K_l}$ $l \in \mathbb{N}$ comme une suite de variables aléatoires indépendantes identiquement distribuées suivant la loi de poisson de moyenne $\mathbb{E}\left[K_l\right]=\Tilde{K}_l=\frac{\lambda_u}{\lambda_b} $ tronqué à $N_a$ qui représente le nombre maximal d'utilisateur qu'une BS peut servir.\\[0.2cm]
+Dans cette modélisation, on utilise les précodeurs f$_{l,k}$ entre l'utilisateur k et la station de base l. Cette fonction de précodage exprime la formation de faisceaux conjuguait et la contrainte de puissance ( puissance bornée ) elle est définie par : $$f_{l,k} = \sqrt{N_a}\frac{\hat{h}_{l,(l,k)}}{\sqrt{\mathbb{E}\left[\|\hat{h}_{l,(l,k)}\|^2\right]}}$$ 
+O\'u $\left\lbrace \hat{h}_{l, (l,k)} \right\rbrace_{k=0,1,...,K_l-1}$ sont les estimations du canal fait par le l th BS à partir des pilotes transmis par ses propres utilisateurs.
+
+\printbibliography
+\end{document}
